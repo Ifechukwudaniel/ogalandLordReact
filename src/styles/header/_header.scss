@@ -35,7 +35,8 @@
     .nav-item {
       color: $main-white-color;
     }
-  }.navbar {
+  }
+  .navbar {
     padding: 20px;
     margin-bottom: 40px;
     background-color: $main-black-color;
@@ -51,7 +52,14 @@
       letter-spacing: 1px;
       color: $main-color !important;
       font-weight: 500;
+
+      a{
+        &:hover{
+          text-decoration: none;
+        }
+      }
     }
+  }
   
     .nav-item {
       font-size: 14px;
@@ -72,4 +80,4 @@
     .nav-item {
       color: $main-white-color;
     }
-  }
+  
