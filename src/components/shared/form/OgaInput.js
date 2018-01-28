@@ -5,12 +5,13 @@ import React from 'react'
     label,
     type,
     className,
+    placeholder,
     meta: { touched, error,warning}
   }) => (
     <div>
       <label>{label}</label>
       <div>
-        <input {...input} className={className} placeholder={label} type={type} />
+        <input {...input} className={className} placeholder={placeholder} type={type} />
       </div>
       <div>
       {touched && (error && <div className="alert alert-danger">{ error} </div>)}
