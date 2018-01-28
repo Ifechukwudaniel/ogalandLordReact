@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import RentalCreateForm from '../rental-create/RentalCreateForm'
 class RentalCreate extends Component {
-    createRental =(data)=>{
-    debugger;
+    createRental =(rentalData)=>{
+     console.log(rentalData)
+    }
+
+    options={
+      RenatlOption :['apartment','house','condo']
     }
 
   render() {
@@ -12,7 +16,7 @@ class RentalCreate extends Component {
           <div className='row'>
             <div className='col-md-5'>
               <h1 className='page-title'>Create Rental</h1>
-              <RentalCreateForm  Submit={this.createRental} errors ={[]}/>
+              <RentalCreateForm  Submit={this.createRental} errors ={[]} options={this.options.RenatlOption}/>
             </div>
             <div className='col-md-6 ml-auto'>
               <div className='image-container'>

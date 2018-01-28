@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter,Route,Redirect } from "react-router-dom";
+import { BrowserRouter,Route,Redirect, Switch } from "react-router-dom";
 import {Provider} from 'react-redux';
 
 import Header from './components/shared/Header';
@@ -36,13 +36,15 @@ class App extends Component {
             <div>
               <Header logout= {this.logout}/>
                   <div className='container'>
+                    <Switch>
                       <Route exact path="/" render={()=><Redirect to="/rental"/>}/>
                       <Route exact path="/rental" component ={RentalList}/>
-                      <ProtectedRoute exact path ='/new/rental' component = {RentalCreate}/>
+                      <ProtectedRoute exact path ='/rental/newrental' component = {RentalCreate}/>
                       <Route  exact path="/register" component ={Register}/>
                       <Route exact path="/login" component ={Login}/>
                       <Route exact path="/rental/:id" component ={RentalDetail}/>
                       <Route exact path="/rental/:city/homes" component ={RentalSearchListing}/>
+                    </Switch>
                 </div>
             </div>
         </BrowserRouter>
