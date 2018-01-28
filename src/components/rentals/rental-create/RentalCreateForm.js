@@ -76,6 +76,7 @@ const RentalCreateForm  = props=> {
        component={OgaInput}
        type="text"
        label="DailyRate"
+       symbol = '₦'
        className="form-control"
        validate ={[required, Isnumber]}
       />

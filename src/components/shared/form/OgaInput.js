@@ -5,12 +5,18 @@ import React from 'react'
     label,
     type,
     className,
+    symbol,
     placeholder,
     meta: { touched, error,warning}
   }) => (
     <div>
       <label>{label}</label>
-      <div>
+      <div className="input-group">
+        { symbol &&
+           <div className="input-group-prepend">
+               <div className="input-group-text"> {symbol} </div>
+           </div>
+        }
         <input {...input} className={className} placeholder={placeholder} type={type} />
       </div>
       <div>
