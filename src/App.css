@@ -37,6 +37,8 @@
     letter-spacing: 1px;
     color: #f0c91cfa !important;
     font-weight: 500; }
+    .navbar .navbar-brand a:hover {
+      text-decoration: none; }
 
 .nav-item {
   font-size: 14px; }
@@ -132,8 +134,8 @@
       border-radius: 5px; }
   .bwm-form label {
     font-style: bold !important;
-    font-size: 20px;
-    margin: 20px 0px; }
+    font-size: 15px;
+    margin: 10px 0px; }
   .bwm-form .form-text {
     font-size: 13px; }
   .bwm-form .catchphrase {

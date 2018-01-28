@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import RentalCreateForm from '../rental-create/RentalCreateForm'
 class RentalCreate extends Component {
-
+    createRental =(data)=>{
+    debugger;
+    }
 
   render() {
     return (
@@ -9,7 +12,7 @@ class RentalCreate extends Component {
           <div className='row'>
             <div className='col-md-5'>
               <h1 className='page-title'>Create Rental</h1>
-              RENTAL CREATE FORM HERE!!!!
+              <RentalCreateForm  Submit={this.createRental} errors ={[]}/>
             </div>
             <div className='col-md-6 ml-auto'>
               <div className='image-container'>

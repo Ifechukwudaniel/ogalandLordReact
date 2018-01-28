@@ -5,6 +5,7 @@ import RentalList from './components/rentals/rental-list/RentalListing';
 import RentalDetail from "./components/rentals/rental-detail/RentalDetail";
 import {Provider} from 'react-redux';
 import Register from "./components/register/Register";
+import RentalCreate from "./components/rentals/rental-create/RentalCreate";
 import Login from './components/login/Login'
 import  {ProtectedRoute} from './components/shared/auth/ProtectedRoute'
 import RentalSearchListing from './components/rentals/rental-list/RentalSearchListing'
@@ -34,10 +35,11 @@ class App extends Component {
                   <div className='container'>
                       <Route exact path="/" render={()=><Redirect to="/rental"/>}/>
                       <Route exact path="/rental" component ={RentalList}/>
-                      <Route exact path="/rental/:id" component ={RentalDetail}/>
-                      <Route exact path="/rental/:city/homes" component ={RentalSearchListing}/>
+                      <ProtectedRoute exact path ='/new/rental' component = {RentalCreate}/>
                       <Route  exact path="/register" component ={Register}/>
                       <Route exact path="/login" component ={Login}/>
+                      <Route exact path="/rental/:id" component ={RentalDetail}/>
+                      <Route exact path="/rental/:city/homes" component ={RentalSearchListing}/>
                 </div>
             </div>
         </BrowserRouter>
