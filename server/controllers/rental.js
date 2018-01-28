@@ -24,7 +24,7 @@ const {normalizeError} = require("../helpers/mongoose")
 exports.findRentalByid = function(req,res){
     var rentalid = req.params.id;
     Rental.findById(rentalid)
-    .populate("user", 'username -_id')
+    .populate('user')
     .populate('bookings','startAt endAt -_id')
     .exec((err, Rentalid)=>{
       if (err) {
