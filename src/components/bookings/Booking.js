@@ -7,9 +7,23 @@ export class Booking extends React.Component {
    if (!Auth.isAuthenticated()) {
      window.location.pathname = "/login"
    }
-
   }
 
+  componentWillMount(){
+    this.getBookingOutDate()
+  }
+  getBookingOutDate=()=>{
+    const {booking} = this.props.rental;
+
+    if (booking && booking.length >0) {
+       booking.forEach(element => {
+         
+        console.log(element);
+       });
+    }
+
+
+  }
 
   render() {
 
@@ -19,10 +33,10 @@ export class Booking extends React.Component {
         <h3 className='booking-price'>$ {rental.dailyRate} <span className='booking-per-night'>per night</span></h3>
         <hr></hr>
         <div className='form-group'>
-        <label htmlFor='dates'>Dates</label>
-        <DateRangePicker startDate="1/1/2014" endDate="3/1/2014">
-        <button>Click Me To Open Picker!</button>
-      </DateRangePicker>
+          <label htmlFor='guests'>Guests</label>
+          <DateRangePicker opens="left" containerStyles={{display:'block'}}>
+            <input type='text' className='form-control' id='dates' placeholder=''></input>
+         </DateRangePicker>
         </div>
         <div className='form-group'>
           <label htmlFor='guests'>Guests</label>
