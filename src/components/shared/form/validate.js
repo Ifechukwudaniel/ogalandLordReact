@@ -9,6 +9,8 @@ export const required =  value =>( value ? undefined : "This field  is required"
   const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined
 
+ export const Isnumber = value => (  isNaN(parseInt(value))? `This field should only contain number` :"" )
+
 export const email = value =>
    value && !Email_regex.test(value) ? "Your Email Does not match standard Email email@mail.com" :undefined
 
