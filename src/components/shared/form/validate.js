@@ -14,4 +14,5 @@ export const email = value =>
 
 
 export const minLength7 = minLength(7)
+export const minLength30 = minLength(30)
 export const maxLength40 = maxLength(40)
