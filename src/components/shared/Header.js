@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
 import {Link,withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import RentalSearchInput from '../rentals/rental-list/RentalSearchInput'
 class Header extends Component  {
   constructor() {
     super();
@@ -21,7 +21,6 @@ class Header extends Component  {
   }
 
   handleShow=()=>{
-    console.log("dede")
     this.handleShowState();
   }
 
@@ -49,15 +48,13 @@ class Header extends Component  {
         <div className="Header">
                 <nav className='navbar navbar-dark navbar-expand-lg'>
             <div className='container'>
-              <Link to="/rental" className='navbar-brand'>B</Link>
-              <form className='form-inline my-2 my-lg-0'>
-                <input className='form-control mr-sm-2 bwm-search' type='search' placeholder="Try 'New York'" aria-label='Search'/>
-                <button className='btn btn-outline-success my-2 my-sm-0 btn-bwm-search'>Search</button>
-              </form>
-              <button className='navbar-toggler'  onClick={this.handleShow} type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
+            <div className='navbar-brand'>
+            <button className='navbar-toggler'  onClick={this.handleShow} type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
                 <span className='navbar-toggler-icon'></span>
               </button>
-            
+              <Link to="/rental">B</Link>
+              </div>
+             <RentalSearchInput/>
               <div className= {this.state.showClass} id='navbarNavAltMarkup'>
                 <div className='navbar-nav ml-auto'>
                   {this.renderAuthButtons()}
