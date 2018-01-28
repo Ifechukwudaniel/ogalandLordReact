@@ -4,16 +4,21 @@ import React from 'react'
     input,
     label,
     className,
-    placeholder,
+    options,
     meta: { touched, error,warning}
-  }) => (
+  }) => {
+
+   const  renderOption =()=>{
+   return   options.map((option,i)=>{
+      return <option key={i} value={option} >  {option}</option>
+    })
+  }
+    return(
     <div>
       <label>{label}</label>
       <div>
         <select {...input} className={className} >
-          <option > name</option>
-          <option > name</option>
-          <option > name</option>
+            {renderOption()}
         </select>
       </div>
       <div>
@@ -21,5 +26,6 @@ import React from 'react'
       {touched && (warning && <div className="alert alert-warning">{warning} </div>)}
       </div>
     </div>
-  )
+    )
+  }
   
