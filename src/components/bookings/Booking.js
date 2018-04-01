@@ -1,6 +1,14 @@
 import React from 'react';
+import Auth from '../../services/auth-services';
+
 //import DateRangePicker from 'react-bootstrap-daterangepicker';
 export class Booking extends React.Component {
+  handleBook=()=>{
+   if (!Auth.isAuthenticated()) {
+     window.location.pathname = "/login"
+   }
+
+  }
 
 
   render() {
@@ -20,7 +28,7 @@ export class Booking extends React.Component {
           <label htmlFor='guests'>Guests</label>
           <input type='number' className='form-control' id='guests' aria-describedby='emailHelp' placeholder=''></input>
         </div>
-        <button className='btn btn-bwm btn-confirm btn-block'>Reserve place now</button>
+        <button className='btn btn-bwm btn-confirm btn-block' onClick ={this.handleBook} >Reserve place now</button>
         <hr></hr>
         <p className='booking-note-title'>People are interested into this house</p>
         <p className='booking-note-text'>

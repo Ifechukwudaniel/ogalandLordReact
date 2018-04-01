@@ -33,7 +33,7 @@ class App extends Component {
                   <div className='container'>
                       <Route exact path="/" render={()=><Redirect to="/rental"/>}/>
                       <Route exact path="/rental" component ={RentalList}/>
-                      <ProtectedRoute exact path="/rental/:id" component ={RentalDetail}/>
+                      <Route exact path="/rental/:id" component ={RentalDetail}/>
                       <Route  exact path="/register" component ={Register}/>
                       <Route exact path="/login" component ={Login}/>
                 </div>
