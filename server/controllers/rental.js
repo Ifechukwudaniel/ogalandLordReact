@@ -31,9 +31,3 @@ exports.findRentalByid = function(req,res){
       return  res.json(Rentalid)
      })
     }
-
-    exports.createRental = function (req,res) {
-        const  {title} = req.body
-
-        return res.json({title})
-    }
