@@ -9,17 +9,17 @@
     margin-right: 30px;
     font-size: 27px;
     letter-spacing: 1px;
-    color: #160094 !important;
+    color: #f0c91cfa !important;
     font-weight: 500; }
   .navbar .nav-item {
     font-size: 14px; }
   .navbar .btn-bwm-search {
-    border-color: #160094;
-    color: #160094; }
+    border-color: #f0c91cfa;
+    color: #f0c91cfa; }
     .navbar .btn-bwm-search:hover, .navbar .btn-bwm-search:focus, .navbar .btn-bwm-search:active {
       background-color: transparent !important;
-      border-color: #160094 !important;
-      color: #160094 !important;
+      border-color: #f0c91cfa !important;
+      color: #f0c91cfa !important;
       box-shadow: none; }
   .navbar .nav-item {
     color: #fff; }
@@ -35,17 +35,17 @@
     margin-right: 30px;
     font-size: 27px;
     letter-spacing: 1px;
-    color: #160094 !important;
+    color: #f0c91cfa !important;
     font-weight: 500; }
   .navbar .nav-item {
     font-size: 14px; }
   .navbar .btn-bwm-search {
-    border-color: #160094;
-    color: #160094; }
+    border-color: #f0c91cfa;
+    color: #f0c91cfa; }
     .navbar .btn-bwm-search:hover, .navbar .btn-bwm-search:focus, .navbar .btn-bwm-search:active {
       background-color: transparent !important;
-      border-color: #160094 !important;
-      color: #160094 !important;
+      border-color: #f0c91cfa !important;
+      color: #f0c91cfa !important;
       box-shadow: none; }
   .navbar .nav-item {
     color: #fff; }
@@ -200,10 +200,10 @@
   margin: 0; }
 
 .daterangepicker td.in-range {
-  background-color: red #160094; }
+  background-color: red #f0c91cfa; }
 
 .daterangepicker td.active {
-  background-color: #160094 !important; }
+  background-color: #f0c91cfa !important; }
 
 .page-title {
   font-size: 30px;
@@ -220,16 +220,16 @@
   color: #d68000; }
 
 .btn-bwm {
-  background-color: #160094 !important;
-  border-color: #ee6c6c !important;
+  background-color: #f0c91cfa !important;
+  border-color: #f0c91cfa !important;
   color: #fff;
   padding: 15px 15px;
   font-size: 15px; }
   .btn-bwm:disabled {
-    background-color: #ee6c6c !important; }
+    background-color: #f0c91cfa !important; }
   .btn-bwm:hover, .btn-bwm:active, .btn-bwm:focus {
-    background-color: #160094 !important;
-    border-color: #160094 !important; }
+    background-color: #f0c91cfa !important;
+    border-color: #f0c91cfa !important; }
 
 div .formLink a {
   margin-top: 20px;
