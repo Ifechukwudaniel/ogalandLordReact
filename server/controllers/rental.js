@@ -1,5 +1,7 @@
+const User = require('../models/users')
 const Rental = require("../models/rental")
 const {normalizeError} = require("../helpers/mongoose")
+
 
  exports.findRentals = function(req,res){
   const {city} = req.query
@@ -33,7 +35,20 @@ exports.findRentalByid = function(req,res){
     }
 
     exports.createRental = function (req,res) {
-        const  {title} = req.body
+        const  {title,city, street,category,image,bedrooms,shared,description,dailyRate,createdAt } = req.body
+        const user = res.locals.user
+        const rental = new Rental({ title,city,street,category,image,bedrooms,shared,description,dailyRate,createdAt ,user})
+      
+       Rental.create(rental, function (err, NewRental) {
+         if (err) {
+          return   res.status(422).send({errors :normalizeError(err.errors) })   
+         }
 
-        return res.json({title})
+        User.update({_id :user.id },{ $push:{ rentals :NewRental  }},function () {
+          
+        })
+
+        return res.json(NewRental)
+         
+       })
     }

@@ -32,7 +32,9 @@ exports.createBooking = function (req,res) {
 
               foundrental.save();
 
-              User.update({_id :user.id },{ $push:{ bookings : booking }})
+              User.update({_id :user.id },{ $push:{ bookings : booking }}, function () {
+                
+              })
 
 
               return    res.json({startAt : booking.startAt , endAt : booking.endAt})
