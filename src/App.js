@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Header from './shared/Header';
 import { BrowserRouter,Route,Redirect } from "react-router-dom";
-import '../node_modules/bootstrap/dist/css/bootstrap.css'
-import './App.css';
 import RentalList from './components/rentals/rental-list/RentalListing';
 import RentalDetail from "./components/rentals/rental-detail/RentalDetail";
 import {Provider} from 'react-redux';
