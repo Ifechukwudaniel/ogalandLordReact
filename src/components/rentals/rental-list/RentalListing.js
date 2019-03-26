@@ -3,11 +3,10 @@ import {RentalList} from "./RentalList";
 import {connect} from "react-redux";
 import * as action from '../../../actions';
 
-class rentalListing extends Component {
+class RentalListing extends Component {
   componentWillMount(){
     this.props.dispatch(action.fecthRentals())
   }
-
   render(){
     return (
       <div>
@@ -20,9 +19,11 @@ class rentalListing extends Component {
   }
 }
 
+
 function mapStateToProps(state){
     return{
     rentals :state.rentals.data
     }
   }
- export default connect(mapStateToProps)(rentalListing)
+
+ export default  connect(mapStateToProps)(RentalListing)
