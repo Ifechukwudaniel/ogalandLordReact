@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
+ const bcrypt =  require('bcrypt')
 
 const userSchema = new Schema({
     username :{
         type:String, 
         min:[4, 'To short  min is 4 charaters' ], 
-        max:[32,'Too long max is 32 charaters'],
-        required:"Username is Required"
+        max:[32,'Too long max is 32 charaters']
     },
     email :{
         type:String,  
@@ -24,6 +24,23 @@ const userSchema = new Schema({
         required:"Password is Required"
      },
     rentals : [{type:Schema.Types.ObjectId, ref: 'Rental'}]
+})
+
+userSchema.methods.hasSamePassword =  function(passwordRequest) {
+    return bcrypt.compareSync(passwordRequest, this.password)
+}
+
+userSchema.pre("save" , function (next) {
+
+
+    const user = this;
+
+    bcrypt.genSalt(11, function(err, salt) {
+        bcrypt.hash(user.password, salt, function(err, hash) {
+            user.password = hash
+            next()
+        });
+    });
 })
 
 module.exports = mongoose.model("User",userSchema)
