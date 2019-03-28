@@ -1,7 +1,8 @@
 
 const User = require('../models/users')
 const {normalizeError} = require('../helpers/mongoose')
-
+const jwt = require('jsonwebtoken');
+const config = require('../config/dev')
 exports.register  = function (req, res) {
     const {username,email,password, passwordConfirm} = req.body
 
@@ -58,11 +59,46 @@ exports.auth = function (req, res) {
        }
 
        if (user.hasSamePassword(password)) {
-           return res.json({working:true})
-           //jwt
+        const token  =   jwt.sign({
+            userId :user.id,
+            username :user.username
+            }, config.SECRET_KEY, { expiresIn: '1h' });
+
+           return res.json(token)
        }
        else{
         return res.status(422).send({error :[{title :"Wrong Data",massage:"Wrong Username or Password "}]})
        }
     })
+}
+
+exports.authMiddleware = function (req,res,next) {
+   const token = req.headers.authorization
+   if (token) {
+      const user = parseToken(token)
+
+      User.findById(user.userId , function (err, user) {
+        if(err){
+         return  res.status(422).send(normalizeError(err.errors))
+        }
+        if (user) {
+           res.locals.user = user
+          next()
+        } else {
+          return  notAuthorized(res)
+        }
+      })
+   }
+   else{
+    return  notAuthorized(res)
+   }
+
+}
+
+function parseToken(token) {
+ return jwt.verify(token.split(' ')[1],config.SECRET_KEY)
+}
+
+function notAuthorized(res) {
+  res.status(401).send({error :[{title :"Not authorized",massage:"You need to login "}]})
 }

@@ -8,7 +8,7 @@ const UserRoute = require("./routes/users")
 
 mongoose.connect(config.DB_URL).then(()=>{
     const fakedb = new FakeDB();
-    //fakedb.seedDb()
+    fakedb.seedDb()
 })
  
 const app = express();
