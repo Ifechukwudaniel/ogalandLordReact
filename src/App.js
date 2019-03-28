@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './shared/Header';
+import { BrowserRouter,Route,Redirect } from "react-router-dom";
+import RentalList from './components/rentals/rental-list/RentalListing';
+import RentalDetail from "./components/rentals/rental-detail/RentalDetail";
+import {Provider} from 'react-redux';
+
+const store = require('./reducers/index').init()
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Provider store={store}>
+        <BrowserRouter>
+            <div>
+              <Header/>
+                  <div className='container'>
+                      <Route exact path="/" render={()=><Redirect to="/rental"/>}/>
+                      <Route exact path="/rental" component ={RentalList}/>
+                      <Route exact path="/rental/:id" component ={RentalDetail}/>
+                </div>
+            </div>
+        </BrowserRouter>
+      </Provider>
+
     );
   }
 }
