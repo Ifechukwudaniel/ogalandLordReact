@@ -2,7 +2,7 @@
 @import './header/header';
 @import './rentals/rentals-listing';
 @import './rentals//rental-detail';
-
+@import './form//form';
 .page-title{
     font-size: 30px;
     font-weight: 700;
@@ -17,3 +17,15 @@
    .condo{
      color:#d68000
    }
+.btn-bwm{
+    background-color: $main-color;
+    border-color: $main-color;
+    color: white;
+    padding: 15px 15px;
+    font-size: 15px;
+
+    &:hover, &:active , &:focus {
+        background-color: $main-color !important;
+        border-color: $main-color !important;
+    }
+}
