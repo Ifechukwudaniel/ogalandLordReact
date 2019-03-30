@@ -18,11 +18,14 @@
      color:#d68000
    }
 .btn-bwm{
-    background-color: $main-color;
-    border-color: $main-color;
-    color: white;
+    background-color: $main-color !important;
+    border-color: $diabled-color !important;
+    color :$main-white-color;
     padding: 15px 15px;
     font-size: 15px;
+    &:disabled{
+        background-color: $diabled-color !important; 
+    }
 
     &:hover, &:active , &:focus {
         background-color: $main-color !important;
