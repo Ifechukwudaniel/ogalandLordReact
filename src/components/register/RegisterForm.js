@@ -2,6 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import {OgaInput} from '../shared/form/OgaInput';
 import {OgaError} from '../shared/form/OgaError';
+import {Email_regex} from '../../config/config'
 
 const validate = values => {
   const errors = {}
@@ -13,7 +14,7 @@ const validate = values => {
   if (!values.email) {
     errors.email = "Please enter your email"
   }
-  else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+  else if (!Email_regex.test(values.email)) {
     errors.email ="Your email does not match standard emails"
   }
   if (!values.password) {
