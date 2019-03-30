@@ -1,13 +1,20 @@
 import {
   FETCH_RENTAL_BY_ID_SUCCESS,
   FETCH_RENTAL_BY_ID_INIT,
-  FETCH_RENTAL_SUCCESS
+  FETCH_RENTAL_SUCCESS,
+  LOGIN_FAILURE,
+  LOGIN_SUCCESS,
+  LOGOUT
 } from './types'
 
 import axois from 'axios';
 import { API_URL } from "../config/config"
+import authService from "../services/auth-services"
+import axiosService from '../services/axios-services';
+import actions from 'redux-form/lib/actions';
 
 
+const axiosInstance = axiosService.getInstance() 
 
 //rental actions  -----------------------------------------
 
@@ -36,7 +43,7 @@ const fetchRentalSuccess =(rentals)=>{
 
 export const fecthRentals =()=>{
      return  function(dispatch){
-       axois.get(`${API_URL}/api/v1/rentals`).then((rentals)=>{
+       axois.get(`${API_URL}/rentals`).then((rentals)=>{
         dispatch(fetchRentalSuccess(rentals.data))
 
        })
@@ -47,9 +54,7 @@ export const fetchRentalById=(id)=>{
 
   return function(dispatch){
     dispatch(fetchRentalByIdInit())
-    //simulating server call
-
-     axois.get(`${API_URL}/api/v1/rentals/${id}`).then(
+     axois.get(`${API_URL}/rentals/${id}`).then(
        (rental)=>{
         dispatch(fetchRentalByIdSuccess(rental.data))
        }
@@ -61,14 +66,55 @@ export const fetchRentalById=(id)=>{
 //Auth Actions --------------------------------------------------------------------
 
 export const register =(userData)=>{
-   return axois.post(`${API_URL}/api/v1/users/register`,{...userData}).then(
+   return axois.post(`${API_URL}/users/register`,{...userData}).then(
      (res)=>{
-        debugger;
      return res.data
      },
      (err)=>{
-       debugger
        return Promise.reject(err.response.data.error)
      }
    )
+}
+
+const loginFailure= (error)=>{
+  return{
+    type:LOGIN_FAILURE,
+    error
+  }
+
+}
+
+const loginSuccess= ()=>{
+  return{
+    type:LOGIN_SUCCESS,
+  }
+
+}
+ export const login =(userData) =>{
+    return dispatch=>{
+       return axois.post(`${API_URL}/users/auth`,{...userData})
+       .then(res=>res.data)
+       .then(token=> {
+         authService.saveToken(token)
+         dispatch(loginSuccess())
+       } ).catch((res)=>{
+         dispatch(loginFailure(res.response.data.error))
+       }
+       )
+  }
+ }
+
+ export const authStatus=() =>{
+  return dispatch=>{
+  if (authService.isAuthenticated()) {
+     dispatch(loginSuccess())
+  }    
+ }
+}
+
+export const logout =()=>{
+  authService.inValidateUser()
+  return {
+    type:LOGOUT
+  }
 }
