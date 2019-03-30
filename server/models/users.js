@@ -23,7 +23,8 @@ const userSchema = new Schema({
         max:[32,'To long max is 32 charaters'],
         required:"Password is Required"
      },
-    rentals : [{type:Schema.Types.ObjectId, ref: 'Rental'}]
+    rentals : [{type:Schema.Types.ObjectId, ref: 'Rental'}],
+    bookings : [{type:Schema.Types.ObjectId, ref: 'Booking'}]
 })
 
 userSchema.methods.hasSamePassword =  function(passwordRequest) {
