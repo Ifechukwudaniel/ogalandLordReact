@@ -9,20 +9,20 @@
     margin-right: 30px;
     font-size: 27px;
     letter-spacing: 1px;
-    color: #61dafb !important;
+    color: #0c7403 !important;
     font-weight: 500; }
   .navbar .nav-item {
     font-size: 14px; }
   .navbar .btn-bwm-search {
-    border-color: #61dafb;
-    color: #61dafb; }
+    border-color: #0c7403;
+    color: #0c7403; }
     .navbar .btn-bwm-search:hover, .navbar .btn-bwm-search:focus, .navbar .btn-bwm-search:active {
       background-color: transparent !important;
-      border-color: #61dafb !important;
-      color: #61dafb !important;
+      border-color: #0c7403 !important;
+      color: #0c7403 !important;
       box-shadow: none; }
   .navbar .nav-item {
-    color: #ededed; }
+    color: #fff; }
 
 .navbar {
   padding: 20px;
@@ -35,20 +35,20 @@
     margin-right: 30px;
     font-size: 27px;
     letter-spacing: 1px;
-    color: #61dafb !important;
+    color: #0c7403 !important;
     font-weight: 500; }
   .navbar .nav-item {
     font-size: 14px; }
   .navbar .btn-bwm-search {
-    border-color: #61dafb;
-    color: #61dafb; }
+    border-color: #0c7403;
+    color: #0c7403; }
     .navbar .btn-bwm-search:hover, .navbar .btn-bwm-search:focus, .navbar .btn-bwm-search:active {
       background-color: transparent !important;
-      border-color: #61dafb !important;
-      color: #61dafb !important;
+      border-color: #0c7403 !important;
+      color: #0c7403 !important;
       box-shadow: none; }
   .navbar .nav-item {
-    color: #ededed; }
+    color: #fff; }
 
 #rentalListing {
   /* SINGLE CARD STYLES*/ }
@@ -59,7 +59,8 @@
   #rentalListing .rental-detail-link:hover {
     text-decoration: none; }
   #rentalListing .bwm-card {
-    border: none; }
+    border: none;
+    margin: 20px 0.2px; }
     #rentalListing .bwm-card .card-block {
       padding-top: 8px; }
       #rentalListing .bwm-card .card-block .card-subtitle {
@@ -164,11 +165,13 @@
   color: #d68000; }
 
 .btn-bwm {
-  background-color: #61dafb;
-  border-color: #61dafb;
-  color: white;
+  background-color: #0c7403 !important;
+  border-color: #c0ee6c !important;
+  color: #fff;
   padding: 15px 15px;
   font-size: 15px; }
+  .btn-bwm:disabled {
+    background-color: #c0ee6c !important; }
   .btn-bwm:hover, .btn-bwm:active, .btn-bwm:focus {
-    background-color: #61dafb !important;
-    border-color: #61dafb !important; }
+    background-color: #0c7403 !important;
+    border-color: #0c7403 !important; }
