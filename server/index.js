@@ -9,7 +9,7 @@ const BookingRoute = require('./routes/booking')
 
 mongoose.connect(config.DB_URL).then(()=>{
     const fakedb = new FakeDB();
-    fakedb.seedDb()
+   // fakedb.seedDb()
 })
  
 const app = express();
