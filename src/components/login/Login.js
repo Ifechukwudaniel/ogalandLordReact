@@ -18,7 +18,8 @@ import * as actions from 'actions';
 
    render() {
     const { isAuth, error } = this.props.auth;
-    const { successRegister } = this.props.location.state || false;
+    const { successRegistered } = this.props.location.state || false;
+  
 
      if (isAuth) {
       return <Redirect to={{pathname: '/rental'}} />
@@ -31,7 +32,7 @@ import * as actions from 'actions';
             <div className="col-md-5">
               <h1>Login</h1>
               {
-                successRegister ?
+                successRegistered?
                   <div className='alert alert-success'>
                     <p> You have been succesfuly registered, please login now. </p>
                   </div>
