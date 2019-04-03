@@ -1,7 +1,6 @@
 import React from 'react';
 
 export function OgaError(props) {
-  debugger
   const errors = props.errors;
  
 
