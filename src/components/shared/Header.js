@@ -33,7 +33,7 @@ class Header extends Component  {
         <div className="Header">
                 <nav className='navbar navbar-dark navbar-expand-lg'>
             <div className='container'>
-              <Link to="/rental" className='navbar-brand'>OgaLandLord</Link>
+              <Link to="/rental" className='navbar-brand'> <b> <span className="fa fa-building"></span> OgaLandLord </b></Link>
               <form className='form-inline my-2 my-lg-0'>
                 <input className='form-control mr-sm-2 bwm-search' type='search' placeholder="Try 'New York'" aria-label='Search'></input>
                 <button className='btn btn-outline-success my-2 my-sm-0 btn-bwm-search'>Search</button>
