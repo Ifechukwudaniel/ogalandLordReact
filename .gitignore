@@ -27,3 +27,4 @@ src/**/*.css
 .vscode
 src/*.css
 .gitignore
+/.dist
