@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import *  as action from '../../../actions/index'
 import {RentalDetailInfo} from './RentalDetailInfo';
 import {RentalMap} from './RentalMap';
+import {Booking} from '../../bookings/Booking'
 class RentalDetail extends Component {
 componentDidMount(){
    const id =this.props.match.params.id;
@@ -20,7 +21,7 @@ componentDidMount(){
               <img src={rental.image} alt=''></img>
             </div>
             <div className='col-md-6'>
-               <RentalMap location ={rental.city+","+rental.street}/>
+              {/* <RentalMap location ={rental.city+","+rental.street}/> */}
             </div>
           </div>
         </div>
@@ -30,7 +31,9 @@ componentDidMount(){
             <div className='col-md-8'>
                 <RentalDetailInfo rental= {rental}/>
              </div>
-            <div className='col-md-4'> BOOKING</div>
+            <div className='col-md-4'>
+            <Booking />
+            </div>
           </div>
         </div>
       </section>
