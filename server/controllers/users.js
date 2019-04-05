@@ -46,7 +46,7 @@ exports.register  = function (req, res) {
 exports.auth = function (req, res) {
     const {email, password} = req.body
     if (!email || !password) {
-        return  res.status(422).send({error :[{title :"Data missing ",massage:"Provide email and password"}]})
+        return  res.status(422).send({error :[{title :"Data missing ",detail:"Provide email and password"}]})
     }
 
     User.findOne({email},function (err, user) {
@@ -55,7 +55,7 @@ exports.auth = function (req, res) {
        }
 
        if(!user){
-        return res.status(422).send({error :[{title :"Invalid User",massage:"Please this user Does not exist"}]})
+        return res.status(422).send({error :[{title :"Invalid User",detail:"Please this user Does not exist"}]})
        }
 
        if (user.hasSamePassword(password)) {
@@ -67,7 +67,7 @@ exports.auth = function (req, res) {
            return res.json(token)
        }
        else{
-        return res.status(422).send({error :[{title :"Wrong Data",massage:"Wrong Username or Password "}]})
+        return res.status(422).send({error :[{title :"Wrong Data",detail:"Wrong Username or Password "}]})
        }
     })
 }
@@ -100,5 +100,5 @@ function parseToken(token) {
 }
 
 function notAuthorized(res) {
-  res.status(401).send({error :[{title :"Not authorized",massage:"You need to login "}]})
+  res.status(401).send({error :[{title :"Not authorized",detail:"You need to login "}]})
 }

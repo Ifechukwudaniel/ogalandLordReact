@@ -11,7 +11,7 @@ class FakeDB {
             image: "https://booksync-jerga-prod.s3.amazonaws.com/uploads/rental/image/5/image.jpeg",
             bedrooms: 4,
             shared: true,
-            description: "Very nice apartment in center of the city.",
+            description: "the bes t rntalthe city.",
             dailyRate: 43
             },
             {
@@ -40,7 +40,13 @@ class FakeDB {
             username : "test test",
             email : "test@gmail.com",
             password : "testtest"
-        }]
+        },
+        {
+          username : "test test1",
+          email : "test1@gmail.com",
+          password : "testtest1"
+      },
+      ]
     }
     async CleanDb(){
       await  User.deleteMany({})
@@ -48,6 +54,7 @@ class FakeDB {
    }
    pushDataToDb(){
       const  user = new User(this.users[0])
+      const user1 = new User(this.users[1])
        this.rentals.forEach((rental)=>{
          const newrental = new Rental(rental);
          newrental.user = user;
@@ -56,6 +63,7 @@ class FakeDB {
          user.rentals.push(newrental)
        })
        user.save();
+       user1.save();
    }
  async seedDb (){
      await  this.CleanDb()

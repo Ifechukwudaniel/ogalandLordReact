@@ -1,7 +1,6 @@
 const express = require('express');
 const Router =  express.Router();
 const UserContoller = require('../controllers/users')
-const User = require("../models/users")
 
 Router.post("/auth", UserContoller.auth)
 

@@ -25,3 +25,6 @@ yarn-error.log*
 #ingore files
 src/**/*.css
 .vscode
+src/*.css
+.gitignore
+/.dist
