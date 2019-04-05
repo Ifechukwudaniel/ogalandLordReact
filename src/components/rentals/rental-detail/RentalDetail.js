@@ -21,7 +21,7 @@ componentDidMount(){
               <img src={rental.image} alt=''></img>
             </div>
             <div className='col-md-6'>
-              {/* <RentalMap location ={rental.city+","+rental.street}/> */}
+              <RentalMap location ={rental.city+","+rental.street}/>
             </div>
           </div>
         </div>
@@ -32,7 +32,7 @@ componentDidMount(){
                 <RentalDetailInfo rental= {rental}/>
              </div>
             <div className='col-md-4'>
-            <Booking />
+            <Booking rental={rental} />
             </div>
           </div>
         </div>

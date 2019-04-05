@@ -11,7 +11,7 @@ class FakeDB {
             image: "https://booksync-jerga-prod.s3.amazonaws.com/uploads/rental/image/5/image.jpeg",
             bedrooms: 4,
             shared: true,
-            description: "Very nice apartment in center of the city.",
+            description: "the bes t rntalthe city.",
             dailyRate: 43
             },
             {
