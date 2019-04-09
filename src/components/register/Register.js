@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import  RegisterForm  from "./RegisterForm";
 import * as  actions from '../../actions/index'
-import { Redirect } from 'react-router-dom'
+import {Link,Redirect} from 'react-router-dom'
 
 
 export default class Register extends Component {
@@ -40,6 +40,9 @@ export default class Register extends Component {
                 <div className='col-md-5'>
                   <h1>Register</h1>
                   <RegisterForm Submit={this.registerUser} errors ={errors}/>
+                    <div className=" card formLink" >
+                     <Link  to ='/login'> click here to Login  </Link>
+                   </div>
                 </div>
                 <div className='col-md-6 ml-auto'>
                   <div className='image-container'>

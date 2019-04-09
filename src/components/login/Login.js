@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginForm from './LoginForm';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import * as actions from 'actions';
 
  class Login extends React.Component {
@@ -40,6 +40,9 @@ import * as actions from 'actions';
 
               }
               <LoginForm Submit={this.loginUser} errors={error}/>
+              <div className=" card formLink">
+                <Link to ='/register'> click here to SignUp  </Link>
+                </div>
             </div>
             <div className="col-md-6 ml-auto">
               <div className="image-container">
