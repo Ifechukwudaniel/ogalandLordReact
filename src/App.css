@@ -230,3 +230,10 @@
   .btn-bwm:hover, .btn-bwm:active, .btn-bwm:focus {
     background-color: #160094 !important;
     border-color: #160094 !important; }
+
+div .formLink a {
+  margin-top: 20px;
+  color: #20232a;
+  text-decoration: none; }
+  div .formLink a:hover {
+    text-decoration: none; }

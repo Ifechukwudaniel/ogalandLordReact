@@ -6,6 +6,7 @@ import RentalDetail from "./components/rentals/rental-detail/RentalDetail";
 import {Provider} from 'react-redux';
 import Register from "./components/register/Register";
 import Login from './components/login/Login'
+import  {ProtectedRoute} from './components/shared/auth/ProtectedRoute'
 import * as actions from '../src/actions/index'
 
 
@@ -32,7 +33,7 @@ class App extends Component {
                   <div className='container'>
                       <Route exact path="/" render={()=><Redirect to="/rental"/>}/>
                       <Route exact path="/rental" component ={RentalList}/>
-                      <Route exact path="/rental/:id" component ={RentalDetail}/>
+                      <ProtectedRoute exact path="/rental/:id" component ={RentalDetail}/>
                       <Route  exact path="/register" component ={Register}/>
                       <Route exact path="/login" component ={Login}/>
                 </div>
