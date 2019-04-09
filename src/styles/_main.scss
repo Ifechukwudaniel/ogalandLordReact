@@ -33,3 +33,15 @@
         border-color: $main-color !important;
     }
 }
+ div .formLink {
+     a{
+        margin-top:  20px;
+        color: $main-black-color;
+        text-decoration: none;
+
+        &:hover{
+            text-decoration: none;
+        }
+    }   
+
+}
