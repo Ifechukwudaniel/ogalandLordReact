@@ -7,6 +7,22 @@ class Header extends Component  {
     super();
 
      this.handleLogout = this.handleLogout.bind(this);
+        
+      this.state =  {
+        show: false,
+        showClass : "collapse navbar-collapse"
+    }  
+  }
+  
+  handleShowState =()=>{
+    this.state.show ? 
+    this.setState({show: false, showClass :"collapse navbar-collapse " }):  
+    this.setState({show: true, showClass:"collapse navbar-collapse show" })
+  }
+
+  handleShow=()=>{
+    console.log("dede")
+    this.handleShowState();
   }
 
    handleLogout() {
@@ -33,15 +49,16 @@ class Header extends Component  {
         <div className="Header">
                 <nav className='navbar navbar-dark navbar-expand-lg'>
             <div className='container'>
-              <Link to="/rental" className='navbar-brand'> <b> <span className="fa fa-building"></span> OgaLandLord </b></Link>
+              <Link to="/rental" className='navbar-brand'> <b> <span className="fa fa-building"></span>LANDLORD </b></Link>
               <form className='form-inline my-2 my-lg-0'>
-                <input className='form-control mr-sm-2 bwm-search' type='search' placeholder="Try 'New York'" aria-label='Search'></input>
+                <input className='form-control mr-sm-2 bwm-search' type='search' placeholder="Try 'New York'" aria-label='Search'/>
                 <button className='btn btn-outline-success my-2 my-sm-0 btn-bwm-search'>Search</button>
               </form>
-              <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
+              <button className='navbar-toggler'  onClick={this.handleShow} type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
                 <span className='navbar-toggler-icon'></span>
               </button>
-              <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
+            
+              <div className= {this.state.showClass} id='navbarNavAltMarkup'>
                 <div className='navbar-nav ml-auto'>
                   {this.renderAuthButtons()}
                 </div>
