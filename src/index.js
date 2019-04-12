@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'Font-Awesome-4.7.0/css/font-awesome.css'
+import 'bootstrap-daterangepicker/daterangepicker.css';
 import './App.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';

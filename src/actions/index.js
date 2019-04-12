@@ -2,6 +2,8 @@ import {
   FETCH_RENTAL_BY_ID_SUCCESS,
   FETCH_RENTAL_BY_ID_INIT,
   FETCH_RENTAL_SUCCESS,
+  FETCH_RENTALS_INIT,
+  FETCH_RENTALS_FAIL,
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
   LOGOUT
@@ -40,12 +42,29 @@ const fetchRentalSuccess =(rentals)=>{
   }
 }
 
+const fecthRentalInit = ()=>{
+   return {
+     type : FETCH_RENTALS_INIT
+   }
+}
 
-export const fecthRentals =()=>{
+const fecthRentalFail = (error) =>{
+   return {
+     type : FETCH_RENTALS_FAIL,
+     error
+   }
+}
+
+export const fecthRentals =(city)=>{
+  const url = city ? `/rentals?city=${city}` :"/rentals"
+     
+
      return  function(dispatch){
-       axois.get(`${API_URL}/rentals`).then((rentals)=>{
-        dispatch(fetchRentalSuccess(rentals.data))
-
+      dispatch(fecthRentalInit())
+      axois.get(`${API_URL}${url}`,{timeout:1000}).then((rentals)=>{
+      dispatch(fetchRentalSuccess(rentals.data))
+       }).catch(({response})=>{
+            dispatch(fecthRentalFail(response.data.error))
        })
      }
 }
@@ -54,13 +73,16 @@ export const fetchRentalById=(id)=>{
 
   return function(dispatch){
     dispatch(fetchRentalByIdInit())
-     axois.get(`${API_URL}/rentals/${id}`).then(
+      
+     axois.get(`${API_URL}/rentals/${id}`, {timeout:1000}).then(
        (rental)=>{
         dispatch(fetchRentalByIdSuccess(rental.data))
        }
      )
   }
 }
+
+
 
 
 //Auth Actions --------------------------------------------------------------------

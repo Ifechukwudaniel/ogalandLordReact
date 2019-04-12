@@ -1,27 +1,12 @@
 const express = require("express");
-const Rental = require("../models/rental")
 const router = express.Router();
+const {findRentals,findRentalByid,createRental} =require('../controllers/rental')
+const {authMiddleware}= require('../controllers/users')
 
-router.get("", function(req,res){
-  Rental.find({})
-  .select("-bookings")
-  .exec((err,FoundRental)=>{
-         res.json(FoundRental)
-    })
-})
+router.get("", findRentals)
 
+router.get("/:id", findRentalByid)
 
-router.get("/:id", function(req,res){
-    var rentalid = req.params.id;
-    Rental.findById(rentalid)
-    .populate("user", 'username -_id')
-    .populate('bookings','startAt endAt -_id')
-    .exec((err, Rentalid)=>{
-      if (err) {
-         res.status(422).send({errors :[{title:"Rental error", detail : "could not find rental"}]})   
-       }
-       res.json(Rentalid)
-     })
-})
+router.post("", authMiddleware, createRental)
 
 module.exports = router
