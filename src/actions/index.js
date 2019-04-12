@@ -61,7 +61,7 @@ export const fecthRentals =(city)=>{
 
      return  function(dispatch){
       dispatch(fecthRentalInit())
-      axois.get(`${API_URL}/${url}`,{timeout:1000}).then((rentals)=>{
+      axois.get(`${API_URL}${url}`,{timeout:1000}).then((rentals)=>{
       dispatch(fetchRentalSuccess(rentals.data))
        }).catch(({response})=>{
             dispatch(fecthRentalFail(response.data.error))

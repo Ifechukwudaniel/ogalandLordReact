@@ -1,7 +1,7 @@
 import React from 'react';
 import Auth from '../../services/auth-services';
 
-//import DateRangePicker from 'react-bootstrap-daterangepicker';
+import DateRangePicker from 'react-bootstrap-daterangepicker';
 export class Booking extends React.Component {
   handleBook=()=>{
    if (!Auth.isAuthenticated()) {
@@ -20,9 +20,9 @@ export class Booking extends React.Component {
         <hr></hr>
         <div className='form-group'>
         <label htmlFor='dates'>Dates</label>
-          {/* <DateRangePicker startDate="1/1/2014" endDate="3/1/2014">
-              <button>Click Me To Open Picker!</button>
-        </DateRangePicker> */}
+        <DateRangePicker startDate="1/1/2014" endDate="3/1/2014">
+        <button>Click Me To Open Picker!</button>
+      </DateRangePicker>
         </div>
         <div className='form-group'>
           <label htmlFor='guests'>Guests</label>
