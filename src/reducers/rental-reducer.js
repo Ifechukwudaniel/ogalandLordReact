@@ -1,23 +1,31 @@
 import {FETCH_RENTAL_BY_ID_SUCCESS
   ,FETCH_RENTAL_BY_ID_INIT,
-  FETCH_RENTAL_SUCCESS} from '../actions/types'
-const IntialRentaks ={
+  FETCH_RENTAL_SUCCESS,
+    FETCH_RENTALS_INIT,
+    FETCH_RENTALS_FAIL} from '../actions/types'
+const IntialRentals ={
   rentals :{
-    data:[]
+    data:[],
+    error:[]
   },
   rental :{
-    data:[]
+    data:[],
+    error:[]
   }
 }
-export const rentalReducer =(state = IntialRentaks.rentals, action) =>{
+export const rentalReducer =(state = IntialRentals.rentals, action) =>{
   switch (action.type) {
-     case FETCH_RENTAL_SUCCESS:
+    case  FETCH_RENTALS_INIT:
+      return {...state,data :[],error:[]}
+    case FETCH_RENTAL_SUCCESS:
       return {...state,data:action.rentals };
-      default:
+    case FETCH_RENTALS_FAIL:
+      return Object.assign({},state,{error:action.errors, data:[]})
+    default:
           return state
   }
 }
-export const selectedRentalReducer =(state = IntialRentaks.rental, action) =>{
+export const selectedRentalReducer =(state = IntialRentals.rental, action) =>{
   switch (action.type) {
     case  FETCH_RENTAL_BY_ID_INIT:
        return {...state,data:{}}

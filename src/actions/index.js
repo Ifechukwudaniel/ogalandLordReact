@@ -48,23 +48,21 @@ const fecthRentalInit = ()=>{
    }
 }
 
-const fecthRentalFail = (error) =>{
+const fecthRentalFail = (errors) =>{
    return {
      type : FETCH_RENTALS_FAIL,
-     error
+     errors
    }
 }
 
 export const fecthRentals =(city)=>{
   const url = city ? `/rentals?city=${city}` :"/rentals"
-     
-
      return  function(dispatch){
       dispatch(fecthRentalInit())
       axois.get(`${API_URL}${url}`,{timeout:1000}).then((rentals)=>{
       dispatch(fetchRentalSuccess(rentals.data))
        }).catch(({response})=>{
-            dispatch(fecthRentalFail(response.data.error))
+            dispatch(fecthRentalFail(response.data.errors))
        })
      }
 }
