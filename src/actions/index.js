@@ -13,12 +13,13 @@ import axois from 'axios';
 import { API_URL } from "../config/config"
 import authService from "../services/auth-services"
 import axiosService from '../services/axios-services';
-import actions from 'redux-form/lib/actions';
+import axiosServices from '../services/axios-services';
 
 
-const axiosInstance = axiosService.getInstance() 
+const axiosInstance = axiosService.initInstance()
 
 //rental actions  -----------------------------------------
+
 
 
 const fetchRentalByIdSuccess =(rental)=>{
@@ -68,7 +69,6 @@ export const fecthRentals =(city)=>{
 }
 
 export const fetchRentalById=(id)=>{
-
   return function(dispatch){
     dispatch(fetchRentalByIdInit())
       
@@ -80,6 +80,12 @@ export const fetchRentalById=(id)=>{
   }
 }
 
+export const createRental = (rentalData) => {
+  return axiosInstance.post('/rentals', rentalData).then(
+    res => res.data,
+    err => Promise.reject(err.response)
+  )
+}
 
 
 

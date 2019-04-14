@@ -13,16 +13,18 @@ mongoose.connect(config.DB_URL).then(()=>{
 })
  
 const app = express();
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 
+ app.use(function  (req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+    next()
+})
 app.use(bodyParser.json())
 
 app.use("/api/v1/users", UserRoute)
-app.use("/api/v1/rentals",RentalRoute)
+app.use("/api/v1/rentals", RentalRoute)
 app.use("/api/v1/booking",BookingRoute)
 
 

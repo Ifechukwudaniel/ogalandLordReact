@@ -35,9 +35,9 @@ exports.findRentalByid = function(req,res){
     }
 
     exports.createRental = function (req,res) {
-        const  {title,city, street,category,image,bedrooms,shared,description,dailyRate,createdAt } = req.body
+        const  {title,city, street,category,image,bedrooms,shared,description,dailyRate, } = req.body
         const user = res.locals.user
-        const rental = new Rental({ title,city,street,category,image,bedrooms,shared,description,dailyRate,createdAt ,user})
+        const rental = new Rental({ title,city,street,category,image,bedrooms,shared,description,dailyRate,user})
       
        Rental.create(rental, function (err, NewRental) {
          if (err) {

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import RentalCreateForm from '../rental-create/RentalCreateForm'
+import *  as actions from '../../../actions/index';
 class RentalCreate extends Component {
     createRental =(rentalData)=>{
-     console.log(rentalData)
+      actions.createRental(rentalData);
     }
 
     options={

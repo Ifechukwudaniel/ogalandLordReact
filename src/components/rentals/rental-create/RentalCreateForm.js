@@ -80,6 +80,12 @@ const RentalCreateForm  = props=> {
        className="form-control"
        validate ={[required, Isnumber]}
       />
+       <Field
+       name="shared"
+       component={OgaInput}
+       type="checkbox"
+       label="Shared"
+      />
      <button type="submit" disabled={ !valid || pristine || submitting}   className="btn btn-bwm bwm-form">
           Create Rental
     </button>
@@ -91,5 +97,6 @@ const RentalCreateForm  = props=> {
 }
 
 export default reduxForm({
-    form: 'rentalCreateForm'
+    form: 'rentalCreateForm',
+    initialValues : {"shared" :false}
   })(RentalCreateForm)
